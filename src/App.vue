@@ -50,12 +50,9 @@ export default {
     },
     async toggleCompleted(todo) {
       console.log(todo);
-      const res = await axios.put(
-        `${process.env.VUE_APP_API_URL}/todos/${todo.id}`,
-        {
-          completed: !todo.completed,
-        }
-      );
+      await axios.put(`${process.env.VUE_APP_API_URL}/todos/${todo.id}`, {
+        completed: !todo.completed,
+      });
       this.fetchTodos();
     },
     async deleteTodo(id) {
